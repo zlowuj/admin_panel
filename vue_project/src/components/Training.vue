@@ -1,7 +1,7 @@
 <template>
   <div class="input-group mb-3">
     <li style="background-color: #f5f542; color: black; display: table !important; text-align: left; font-size: 1.5em" id="left">
-      <strong>koordynaty: {{ user.coordinates }}; data: {{user.date}}; dystans: {{user.distance}}; czas: {{user.time}}</strong>
+      <strong>data: {{user.date}}; dystans: {{user.distance}}; czas: {{user.time}}</strong>
     </li>
     <div style="text-align: right; margin-left: 10px">
     </div>
