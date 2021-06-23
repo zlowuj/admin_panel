@@ -5,11 +5,16 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     userList: [],
+    trainigs: [],
     ifRegister: false,
+    ifTrainings: false,
   },
   mutations: {
     userList(state, data) {
       state.userList = data;
+    },
+    trainigs(state, data) {
+      state.trainigs = data;
     },
     changeRegister(state) {
       if(state.ifRegister) {
@@ -17,8 +22,14 @@ export const store = new Vuex.Store({
       } else {
         state.ifRegister = true;
       }
-      
-      console.log(state.ifRegister)
+    },
+    changeTrainings(state) {
+      if(state.ifTrainings) {
+        state.ifTrainings = false;
+      } else {
+        state.ifTrainings = true;
+      }
+      console.log(state.ifTrainings)
     },
   },
 
@@ -26,8 +37,14 @@ export const store = new Vuex.Store({
     userList: (state) => {
       return state.userList;
     }, 
+    trainigs: (state) => {
+      return state.trainigs;
+    }, 
     ifRegister: (state) => {
       return state.ifRegister;
+    },
+    ifTrainings: (state) => {
+      return state.ifTrainings;
     },
   },
   actions: {

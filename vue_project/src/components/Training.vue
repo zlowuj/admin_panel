@@ -1,15 +1,9 @@
 <template>
   <div class="input-group mb-3">
     <li style="background-color: #f5f542; color: black; display: table !important; text-align: left; font-size: 1.5em" id="left">
-      <strong>id: {{ user.id }}; email: {{user.email}}; imie: {{user.name}}; nazwisko: {{user.surname}}</strong>
+      <strong>koordynaty: {{ user.coordinates }}; data: {{user.date}}; dystans: {{user.distance}}; czas: {{user.time}}</strong>
     </li>
     <div style="text-align: right; margin-left: 10px">
-      <button type="button" class="btn btn-danger" @click="deleteUser">
-        delete
-      </button>
-      <button type="button" class="btn btn-info" @click="showTrainings">
-        trainigs
-      </button>
     </div>
   </div>
 </template>
@@ -50,20 +44,6 @@ export default {
       })
       .catch((error) => console.log(error));
       location.reload();
-    },
-    showTrainings() {
-      axios
-      .get("http://localhost:8082/api/training/"+this.user.id+"/getTrainings", {
-      })
-      .then((response) => {
-        if (response.status == 200) {
-          store.commit("trainigs", response.data);
-          console.log("zaladowano treningi");
-          console.log(this.$store.getters.trainigs);
-        }
-      })
-      .catch((error) => console.log(error));
-      store.commit("changeTrainings");
     }
   },
   props: ["user"],
